@@ -77,21 +77,22 @@ User Management System
 ├── screenshots          # Images for README
 └── README.md
 
-Setup Instructions
-1. Clone the repository
-Bash
+```
+## Setup Instructions
 
-git clone [https://github.com/Ronak-malpani/user-dashboard-app]
+### 1. Clone the repository
+```
+git clone [https://github.com/Ronak-malpani/user-dashboard-app.git](https://github.com/Ronak-malpani/user-dashboard-app.git)
 cd user-dashboard-app
 
-2. Backend Setup
-Bash
+```
+###2. Backend Setup
+Install dependencies and configure the environment:
 
 cd server
 npm install
-Create a .env file in the server/ folder:
 
-Code snippet
+Create a .env file in the server/ folder:
 
 PORT=5000
 DB_HOST=localhost
@@ -99,17 +100,16 @@ DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=user_management
 JWT_SECRET=your_secret_key
-Run the server:
 
-Bash
+Run the server: node server.js
+```
 
-node server.js
-3. Frontend Setup
-Open a new terminal:
-
-Bash
+###3. Frontend Setup
+Open a new terminal window:
 
 cd client
 npm install
 npm start
+
 The app will run on http://localhost:3000
+```
