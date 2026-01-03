@@ -48,6 +48,7 @@ A full-stack User Management System built as part of a technical round assignmen
 |              | • Activate/Deactivate accounts<br>                                                            |
 | Super Admin  | • All Admin privileges <br> • Manage Roles (Promote/Demote Users & Admins)                    |
 
+###  Demo Credentials (for testing)
 | Role        | Email                                               | Password      |
 | ----------- | --------------------------------------------------- | ------------- |
 | Super Admin | [superadmin@gmail.com](mailto:superadmin@gmail.com) | SuperAdmin123 |
@@ -75,3 +76,40 @@ User Management System
 │
 ├── screenshots          # Images for README
 └── README.md
+
+Setup Instructions
+1. Clone the repository
+Bash
+
+git clone [https://github.com/Ronak-malpani/user-dashboard-app]
+cd user-dashboard-app
+
+2. Backend Setup
+Bash
+
+cd server
+npm install
+Create a .env file in the server/ folder:
+
+Code snippet
+
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=user_management
+JWT_SECRET=your_secret_key
+Run the server:
+
+Bash
+
+node server.js
+3. Frontend Setup
+Open a new terminal:
+
+Bash
+
+cd client
+npm install
+npm start
+The app will run on http://localhost:3000
