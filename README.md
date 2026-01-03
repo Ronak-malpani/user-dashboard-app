@@ -119,8 +119,6 @@ The app will run on http://localhost:3000
 
 ### 4. Screenshots
 
-## Screenshots / Demo
-
 ### Authentication
 
 **Landing Page**
@@ -139,28 +137,36 @@ The app will run on http://localhost:3000
 **Dashboard Overview**
 ![Admin Dashboard](./screenshots/AdminDashboard.png)
 
+**View All Users**
+![View All Users](./screenshots/ViewAllUsers.png)
+
 **Add User**
-![Add User](./screenshots/AdminAddingtheUser.png)
+![Add New User](./screenshots/AddNewUsers.png)
 
 **Edit User**
-![Edit User](./screenshots/Admin%20editingTheUserDetails.png)
+![Edit User Details](./screenshots/EditUserDetails.png)
+
+**Delete User**
+![Delete Users](./screenshots/DeleteUsers.png)
 
 **Update Roles**
-![Update Roles](./screenshots/AdminUpdatingTheRoles.png)
+![Change User Role(Updating)](./screenshots/ChangeUserRole-AdminAndUser.png)
 
 ---
 
 ### User Dashboard
 
 **User Overview**
-![User Dashboard](./screenshots/UserDashboard.png)
+![View User Profile](./screenshots/ViewTheirProfile.png)
 
 **Profile Update**
-![Profile Update](./screenshots/UserProfileUpdate.png)
+![Update Basic Profile Details](./screenshots/UpdateBasicProfileDetails.png)
 
 **Change Password**
-![Change Password](./screenshots/UserChangingThePassword.png)
+![Change Password](./screenshots/ChangePassword.png)
 
+**Logout**
+![Logout](./screenshots/Logout.png)
 
 ### 5.License
 ```
