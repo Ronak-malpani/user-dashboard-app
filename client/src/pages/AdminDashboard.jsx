@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import toast from "react-hot-toast";
@@ -32,17 +32,6 @@ export default function AdminDashboard() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user") || "null");
-    if (!token || !user || !(user.role === "ADMIN" || user.role === "SUPER_ADMIN")) {
-      toast.error("Unauthorized. Please login as an admin.");
-      navigate("/login");
-      return;
-    }
-    fetchUsers();
-  }, [navigate]);
-
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
@@ -50,29 +39,45 @@ export default function AdminDashboard() {
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 8;
 
+
   useEffect(() => {
-  setCurrentPage(1);
-}, [search, roleFilter, statusFilter]);
+    setCurrentPage(1);
+  }, [search, roleFilter, statusFilter]);
 
-
-    const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
       const res = await api.get("/admin/users");
       const latestUsers = res.data.users || res.data || [];
       setUsers(latestUsers);
-
-      // Update selectedUser if it exists
-      if (selectedUser) {
-        const updatedUser = latestUsers.find(u => u.id === selectedUser.id);
-        if (updatedUser) setSelectedUser(updatedUser);
-      }
-
     } catch (err) {
       toast.error(err.response?.data?.message || "Failed to fetch users!");
     }
-  };
+  }, []);
 
+  
+  useEffect(() => {
+    if (selectedUser && users.length > 0) {
+      const updatedUser = users.find((u) => u.id === selectedUser.id);
+      if (updatedUser) setSelectedUser(updatedUser);
+    }
+    
+  }, [users]);
 
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user") || "null");
+    if (
+      !token ||
+      !user ||
+      !(user.role === "ADMIN" || user.role === "SUPER_ADMIN")
+    ) {
+      toast.error("Unauthorized. Please login as an admin.");
+      navigate("/login");
+      return;
+    }
+    fetchUsers();
+  }, [navigate, fetchUsers]);
 
   const handleDelete = async (id) => {
     try {

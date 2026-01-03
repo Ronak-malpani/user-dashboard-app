@@ -1,5 +1,6 @@
 # User Management System (Role-Based Dashboard)
 
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://user-dashboard-app-jet.vercel.app)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![React](https://img.shields.io/badge/Frontend-React.js-blue)
 ![Node](https://img.shields.io/badge/Backend-Node.js-green)
@@ -7,6 +8,7 @@
 
 A full-stack User Management System built as part of a technical round assignment. The application demonstrates authentication, authorization, and role-based access control (RBAC) using modern web technologies.
 
+[Click Here to View Live Demo](https://user-dashboard-app-jet.vercel.app)
 ---
 
 ## Table of Contents
@@ -24,10 +26,23 @@ A full-stack User Management System built as part of a technical round assignmen
 
 | Area | Technologies |
 | :--- | :--- |
-| Frontend | React.js, React Router, Axios, CSS3 (Responsive) |
-| Backend | Node.js, Express.js, JWT, Bcrypt |
-| Database | MySQL |
+| **Frontend** | React.js, React Router, Axios, CSS3 (Responsive) |
+| **Backend** | Node.js, Express.js, JWT, Bcrypt |
+| **Database** | MySQL (Hosted on **Aiven Cloud**) |
+| **Deployment** | **Vercel** (Frontend), **Render** (Backend) |
 
+
+## Deployment
+
+The application is deployed using a modern cloud infrastructure:
+
+## Deployment
+
+The application is deployed using a modern cloud infrastructure:
+
+- **Frontend:** Deployed on **[Vercel](https://user-dashboard-app-jet.vercel.app)** for fast, global content delivery.
+- **Backend:** Hosted as a web service on **[Render](https://render.com/)**, managing API requests and environment variables.
+- **Database:** Managed MySQL instance hosted on **[Aiven](https://aiven.io/)**, configured with SSL for secure cloud connectivity.
 ---
 
 ## Features

@@ -22,3 +22,5 @@ Thumbs.db
 
 # VSCode settings 
 .vscode/
+
+server/setup-db.js

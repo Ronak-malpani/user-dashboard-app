@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://user-dashboard-backend-qewf.onrender.com/api", 
   headers: {
     "Content-Type": "application/json",
   },
@@ -19,13 +19,13 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Optional: handle 401s globally (clear token and redirect to login)
+//  Handle 401s globally (clear token and redirect to login)
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("token");
-      // Redirect user to login page
+      localStorage.removeItem("user"); 
       window.location.href = "/login";
     }
     return Promise.reject(error);
