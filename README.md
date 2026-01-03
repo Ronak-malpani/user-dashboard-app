@@ -114,6 +114,19 @@ Below are the key REST APIs used in this application.
 git clone https://github.com/Ronak-malpani/user-dashboard-app.git
 cd user-dashboard-app
 ```
+### 2.Database Setup
+
+The app uses MySQL. The database schema is provided in:
+```
+/database/schema.sql
+```
+
+To create the database and table, run:
+```
+mysql -u root -p < database/schema.sql
+```
+
+Enter your MySQL password when prompted.
 
 ### 2. Backend Setup
 
