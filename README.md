@@ -79,7 +79,7 @@ User Management System
 
 ```
 
-## 🔌 REST API Documentation
+##  REST API Documentation
 
 Below are the key REST APIs used in this application.
 
@@ -106,6 +106,7 @@ Below are the key REST APIs used in this application.
 | PUT    | /users/:id/role   | Update user role           |
 | PUT    | /users/:id/status | Activate / Deactivate user |
 
+
 ## Setup Instructions
 
 ### 1. Clone the repository
@@ -115,9 +116,9 @@ cd user-dashboard-app
 ```
 
 ### 2. Backend Setup
-```
-Install dependencies and configure the environment:
 
+Install dependencies and configure the environment:
+```
 cd server
 npm install
 ```
@@ -133,6 +134,7 @@ JWT_SECRET=your_secret_key
 
 Run the server: node server.js
 ```
+Note: Replace your_mysql_password with the password of your local MySQL database.
 
 ### 3. Frontend Setup
 ```
@@ -143,6 +145,22 @@ npm install
 npm start
 
 The app will run on http://localhost:3000
+```
+##  Running Locally (Important Note)
+
+This project uses a MySQL database.
+
+## To run locally, you must:
+```
+- Have MySQL installed
+- Create the required database and tables
+- Configure environment variables in a `.env` file
+```
+
+## For reviewers:  
+```
+Please use the **live deployed application** using the demo credentials below.  
+Local setup is provided for reference only.
 ```
 
 ### 4. Screenshots
