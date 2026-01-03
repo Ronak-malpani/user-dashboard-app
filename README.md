@@ -119,36 +119,47 @@ The app will run on http://localhost:3000
 
 ### 4. Screenshots
 
-##  Screenshots / Demo
-
 ## Screenshots / Demo
 
 ### Authentication
-| Landing Page | Login |
-| :---: | :---: |
-| ![Landing](./screenshots/Landing.png) | ![Login](./screenshots/Login.png) |
 
-| Sign Up | |
-| :---: | :---: |
-| ![SignUp](./screenshots/SignUp.png) | |
+**Landing Page**
+![Landing](./screenshots/Landing.png)
+
+**Login Page**
+![Login](./screenshots/Login.png)
+
+**Sign Up Page**
+![SignUp](./screenshots/SignUp.png)
+
+---
 
 ### Admin Dashboard
-| Dashboard View | Add User |
-| :---: | :---: |
-| ![Admin Dash](./screenshots/AdminDashboard.png) | ![Add User](./screenshots/AdminAddingtheUser.png) |
 
-| Edit User | Update Roles |
-| :---: | :---: |
-| ![Edit User](./screenshots/Admin%20editingTheUserDetails.png) | ![Update Roles](./screenshots/AdminUpdatingTheRoles.png) |
+**Dashboard Overview**
+![Admin Dashboard](./screenshots/AdminDashboard.png)
+
+**Add User**
+![Add User](./screenshots/AdminAddingtheUser.png)
+
+**Edit User**
+![Edit User](./screenshots/Admin%20editingTheUserDetails.png)
+
+**Update Roles**
+![Update Roles](./screenshots/AdminUpdatingTheRoles.png)
+
+---
 
 ### User Dashboard
-| User View | Profile Update |
-| :---: | :---: |
-| ![User Dash](./screenshots/UserDashboard.png) | ![Profile](./screenshots/UserProfileUpdate.png) |
 
-| Change Password | |
-| :---: | :---: |
-| ![Pass Change](./screenshots/UserChangingThePassword.png) | |
+**User Overview**
+![User Dashboard](./screenshots/UserDashboard.png)
+
+**Profile Update**
+![Profile Update](./screenshots/UserProfileUpdate.png)
+
+**Change Password**
+![Change Password](./screenshots/UserChangingThePassword.png)
 
 
 ### 5.License
