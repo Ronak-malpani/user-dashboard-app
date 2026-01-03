@@ -118,41 +118,39 @@ The app will run on http://localhost:3000
 ```
 
 ### 4. Screenshots
-```
-## 📸 Screenshots / Demo
 
-**Landing Page**  
-![Landing Page](./screenshots/Landing.png)
+##  Screenshots / Demo
 
-**Login Page**  
-![Login Page](./screenshots/Login.png)
+## Screenshots / Demo
 
-**SignUp Page**  
-![SignUp Page](./screenshots/SignUp.png)
+### Authentication
+| Landing Page | Login |
+| :---: | :---: |
+| ![Landing](./screenshots/Landing.png) | ![Login](./screenshots/Login.png) |
 
-**Admin Dashboard**  
-![Admin Dashboard](./screenshots/AdminDashboard.png)
+| Sign Up | |
+| :---: | :---: |
+| ![SignUp](./screenshots/SignUp.png) | |
 
-**Admin Adding User**  
-![Admin Adding User](./screenshots/AdminAddingtheUser.png)
+### Admin Dashboard
+| Dashboard View | Add User |
+| :---: | :---: |
+| ![Admin Dash](./screenshots/AdminDashboard.png) | ![Add User](./screenshots/AdminAddingtheUser.png) |
 
-**Admin Editing User**  
-![Admin Editing User](./screenshots/AdminEditingTheUserDetails.png)
+| Edit User | Update Roles |
+| :---: | :---: |
+| ![Edit User](./screenshots/Admin%20editingTheUserDetails.png) | ![Update Roles](./screenshots/AdminUpdatingTheRoles.png) |
 
-**Admin Updating Roles**  
-![Admin Updating Roles](./screenshots/AdminUpdatingTheRoles.png)
+### User Dashboard
+| User View | Profile Update |
+| :---: | :---: |
+| ![User Dash](./screenshots/UserDashboard.png) | ![Profile](./screenshots/UserProfileUpdate.png) |
 
-**User Dashboard**  
-![User Dashboard](./screenshots/UserDashboard.png)
-
-**User Profile Update**  
-![User Profile Update](./screenshots/UserProfileUpdate.png)
-
-**User Changing Password**  
-![User Changing Password](./screenshots/UserChangingThePassword.png)
+| Change Password | |
+| :---: | :---: |
+| ![Pass Change](./screenshots/UserChangingThePassword.png) | |
 
 
-```
 ### 5.License
 ```
 MIT License
