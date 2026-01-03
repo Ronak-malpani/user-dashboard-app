@@ -78,6 +78,34 @@ User Management System
 └── README.md
 
 ```
+
+## 🔌 REST API Documentation
+
+Below are the key REST APIs used in this application.
+
+###  Authentication
+| Method | Endpoint       | Description               |
+|------  |----------------|-------------------------- |
+| POST   | /auth/login    | Login user and return JWT |
+| POST   | /auth/register | Register new user         |
+
+###  User APIs
+| Method | Endpoint               | Description                |
+|------  |------------------------|----------------------------|
+| GET    | /users/profile         | Get logged-in user profile |
+| PUT    | /users/profile         | Update user profile        |
+| PUT    | /users/change-password | Change user password       |
+
+###  Admin APIs (Admin / Super Admin only)
+| Method | Endpoint          | Description                |
+|------  |------------------ |----------------------------|
+| GET    | /users            | Get all users              |
+| POST   | /users            | Create new user            |
+| PUT    | /users/:id        | Update user                |
+| DELETE | /users/:id        | Delete user                |
+| PUT    | /users/:id/role   | Update user role           |
+| PUT    | /users/:id/status | Activate / Deactivate user |
+
 ## Setup Instructions
 
 ### 1. Clone the repository
