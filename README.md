@@ -117,7 +117,43 @@ npm start
 The app will run on http://localhost:3000
 ```
 
-### 4.License
+### 4. Screenshots
+```
+## 📸 Screenshots / Demo
+
+**Landing Page**  
+![Landing Page](./screenshots/Landing.png)
+
+**Login Page**  
+![Login Page](./screenshots/Login.png)
+
+**SignUp Page**  
+![SignUp Page](./screenshots/SignUp.png)
+
+**Admin Dashboard**  
+![Admin Dashboard](./screenshots/AdminDashboard.png)
+
+**Admin Adding User**  
+![Admin Adding User](./screenshots/AdminAddingtheUser.png)
+
+**Admin Editing User**  
+![Admin Editing User](./screenshots/AdminEditingTheUserDetails.png)
+
+**Admin Updating Roles**  
+![Admin Updating Roles](./screenshots/AdminUpdatingTheRoles.png)
+
+**User Dashboard**  
+![User Dashboard](./screenshots/UserDashboard.png)
+
+**User Profile Update**  
+![User Profile Update](./screenshots/UserProfileUpdate.png)
+
+**User Changing Password**  
+![User Changing Password](./screenshots/UserChangingThePassword.png)
+
+
+```
+### 5.License
 ```
 MIT License
 
@@ -131,7 +167,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ```
 
 
-### 4. Author
+### 6. Author
 ```
 Ronak Malpani
 
