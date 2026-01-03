@@ -22,9 +22,15 @@ export default function UserDashboard() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
 
+  // Eye toggle state
+  const [showPassword, setShowPassword] = useState({
+    current: false,
+    new: false,
+    confirm: false
+  });
+
   // logout modal
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-
 
   const navigate = useNavigate();
 
@@ -52,8 +58,6 @@ export default function UserDashboard() {
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
-
-    // simple inline validation
     const errors = {};
     if (!name || name.trim().length === 0) errors.name = "Name is required";
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) errors.email = "Valid email is required";
@@ -79,8 +83,6 @@ export default function UserDashboard() {
 
   const handleChangePassword = async (e) => {
     e.preventDefault();
-
-    // inline validation
     const errors = {};
     if (!currentPassword) errors.currentPassword = "Current password is required";
     if (!newPassword || newPassword.length < 6) errors.newPassword = "Password must be at least 6 characters";
@@ -101,6 +103,7 @@ export default function UserDashboard() {
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
+      setShowPassword({ current: false, new: false, confirm: false }); // reset eye toggles
       setActiveTab("profile");
     } catch (err) {
       setPasswordErrors({ form: err.response?.data?.message || "Failed to change password" });
@@ -109,10 +112,7 @@ export default function UserDashboard() {
     }
   };
 
-  const handleLogout = () => {
-    // show confirmation modal
-    setShowLogoutModal(true);
-  };
+  const handleLogout = () => setShowLogoutModal(true);
 
   const confirmLogout = () => {
     setShowLogoutModal(false);
@@ -122,9 +122,7 @@ export default function UserDashboard() {
     navigate("/login");
   };
 
-  const cancelLogout = () => {
-    setShowLogoutModal(false);
-  };
+  const cancelLogout = () => setShowLogoutModal(false);
 
   const sidebarItem = (active) => ({
     padding: "0.7rem 1rem",
@@ -134,6 +132,25 @@ export default function UserDashboard() {
     borderRadius: "8px",
     margin: "0.5rem 0",
   });
+
+  // Eye toggle JSX
+  const EyeToggle = ({ visible, onClick }) => (
+    <span
+      onClick={onClick}
+      style={{
+        position: "absolute",
+        right: "12px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        cursor: "pointer",
+        fontSize: "14px",
+        color: "#666"
+      }}
+      title={visible ? "Hide password" : "Show password"}
+    >
+      {visible ? "🙈" : "👁️"}
+    </span>
+  );
 
   return (
     <div className="admin-container" style={{ minHeight: "100vh", background: "#f0f2f5" }}>
@@ -169,30 +186,13 @@ export default function UserDashboard() {
             <h2 className="card-title">Your Profile</h2>
             {profile ? (
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-                <div>
-                  <strong>Name</strong>
-                  <div>{profile.name}</div>
-                </div>
-                <div>
-                  <strong>Email</strong>
-                  <div>{profile.email}</div>
-                </div>
-                <div>
-                  <strong>Role</strong>
-                  <div>{profile.role}</div>
-                </div>
-                <div>
-                  <strong>Status</strong>
-                  <div>{profile.status ? "Active" : "Inactive"}</div>
-                </div>
-                <div>
-                  <strong>Created</strong>
-                  <div>{profile.created_at}</div>
-                </div>
+                <div><strong>Name</strong><div>{profile.name}</div></div>
+                <div><strong>Email</strong><div>{profile.email}</div></div>
+                <div><strong>Role</strong><div>{profile.role}</div></div>
+                <div><strong>Status</strong><div>{profile.status ? "Active" : "Inactive"}</div></div>
+                <div><strong>Created</strong><div>{profile.created_at}</div></div>
               </div>
-            ) : (
-              <div>Loading...</div>
-            )}
+            ) : (<div>Loading...</div>)}
           </div>
         )}
 
@@ -215,14 +215,58 @@ export default function UserDashboard() {
           <div className="admin-card" style={{ maxWidth: "700px", margin: "0 auto" }}>
             <h2 className="card-title">Change password</h2>
             <form className="admin-form" onSubmit={handleChangePassword}>
-              <input className="admin-input" type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} placeholder="Current password" aria-invalid={!!passwordErrors.currentPassword} />
+
+              {/* Current Password */}
+              <div style={{ position: "relative" }}>
+                <input
+                  className="admin-input"
+                  type={showPassword.current ? "text" : "password"}
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  placeholder="Current password"
+                  aria-invalid={!!passwordErrors.currentPassword}
+                />
+                <EyeToggle
+                  visible={showPassword.current}
+                  onClick={() => setShowPassword({ ...showPassword, current: !showPassword.current })}
+                />
+              </div>
               {passwordErrors.currentPassword && <small className="field-error">{passwordErrors.currentPassword}</small>}
 
-              <input className="admin-input" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder="New password" />
-              <small style={{ display: "block", marginBottom: "0.75rem", color: "#666" }}>Password must be at least 6 characters, include an uppercase letter and a number.</small>
+              {/* New Password */}
+              <div style={{ position: "relative" }}>
+                <input
+                  className="admin-input"
+                  type={showPassword.new ? "text" : "password"}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="New password"
+                />
+                <EyeToggle
+                  visible={showPassword.new}
+                  onClick={() => setShowPassword({ ...showPassword, new: !showPassword.new })}
+                />
+              </div>
+              <small style={{ display: "block", marginBottom: "0.75rem", color: "#666" }}>
+                Password must be at least 6 characters, include an uppercase letter and a number.
+              </small>
               {passwordErrors.newPassword && <small className="field-error">{passwordErrors.newPassword}</small>}
 
-              <input className="admin-input" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" aria-invalid={!!passwordErrors.confirmPassword} />
+              {/* Confirm Password */}
+              <div style={{ position: "relative" }}>
+                <input
+                  className="admin-input"
+                  type={showPassword.confirm ? "text" : "password"}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm password"
+                  aria-invalid={!!passwordErrors.confirmPassword}
+                />
+                <EyeToggle
+                  visible={showPassword.confirm}
+                  onClick={() => setShowPassword({ ...showPassword, confirm: !showPassword.confirm })}
+                />
+              </div>
               {passwordErrors.confirmPassword && <small className="field-error">{passwordErrors.confirmPassword}</small>}
 
               {passwordErrors.form && <small className="field-error">{passwordErrors.form}</small>}
@@ -231,16 +275,17 @@ export default function UserDashboard() {
             </form>
           </div>
         )}
-      {showLogoutModal && (
-        <Modal onClose={cancelLogout}>
-          <h3>Logout</h3>
-          <p>Are you sure you want to logout?</p>
-          <div style={{ display: "flex", gap: "0.5rem", justifyContent: "center", marginTop: "1rem" }}>
-            <button className="admin-button" onClick={confirmLogout}>Logout</button>
-            <button className="admin-button cancel-btn" style={{ backgroundColor: "#ccc", color: "#333" }} onClick={cancelLogout}>Cancel</button>
-          </div>
-        </Modal>
-      )}
+
+        {showLogoutModal && (
+          <Modal onClose={cancelLogout}>
+            <h3>Logout</h3>
+            <p>Are you sure you want to logout?</p>
+            <div style={{ display: "flex", gap: "0.5rem", justifyContent: "center", marginTop: "1rem" }}>
+              <button className="admin-button" onClick={confirmLogout}>Logout</button>
+              <button className="admin-button cancel-btn" style={{ backgroundColor: "#ccc", color: "#333" }} onClick={cancelLogout}>Cancel</button>
+            </div>
+          </Modal>
+        )}
 
       </div>
     </div>
