@@ -82,11 +82,12 @@ User Management System
 
 ### 1. Clone the repository
 ```
-git clone [https://github.com/Ronak-malpani/user-dashboard-app.git](https://github.com/Ronak-malpani/user-dashboard-app.git)
+git clone https://github.com/Ronak-malpani/user-dashboard-app.git
 cd user-dashboard-app
 
 ```
-###2. Backend Setup
+### 2. Backend Setup
+```
 Install dependencies and configure the environment:
 
 cd server
@@ -104,7 +105,8 @@ JWT_SECRET=your_secret_key
 Run the server: node server.js
 ```
 
-###3. Frontend Setup
+### 3. Frontend Setup
+```
 Open a new terminal window:
 
 cd client
