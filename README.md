@@ -84,17 +84,18 @@ User Management System
 ```
 git clone https://github.com/Ronak-malpani/user-dashboard-app.git
 cd user-dashboard-app
-
 ```
+
 ### 2. Backend Setup
 ```
 Install dependencies and configure the environment:
 
 cd server
 npm install
+```
 
-Create a .env file in the server/ folder:
-
+### Create a .env file in the server/ folder:
+```
 PORT=5000
 DB_HOST=localhost
 DB_USER=root
