@@ -165,6 +165,8 @@ The app will run on http://localhost:3000
 **Change Password**
 ![Change Password](./screenshots/ChangePassword.png)
 
+<br>
+
 **Logout**
 ![Logout](./screenshots/Logout.png)
 
